@@ -8,7 +8,10 @@ namespace Twinkle.Models
 {
     public class Token
     {
+        // Username
         public string Name { get; set; }
+
+        // A pair of credentials, that will be specific to a user and an application
         public string AccessToken { get; set; }
         public string AccessTokenSecret { get; set; }
 

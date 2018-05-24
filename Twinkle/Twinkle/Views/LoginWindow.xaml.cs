@@ -32,6 +32,20 @@ namespace Twinkle
         public event EventHandler btnAuthorizeClicked;
         public event EventHandler btnLoginClicked;
 
+        // Log in one more time
+        public void RepeatAuthorization()
+        {
+            lblLogin.Visibility = Visibility.Visible;
+            lblAuthorize.Visibility = Visibility.Visible;
+            btnAuthorize.Visibility = Visibility.Visible;
+            imgLogo.Visibility = Visibility.Visible;
+
+            tbPin.Visibility = Visibility.Hidden;
+            btnLogin.Visibility = Visibility.Hidden;
+            chbRemember.Visibility = Visibility.Hidden;
+            lblEnterPin.Visibility = Visibility.Hidden;
+        }
+
         public void ShowError(string msg)
         {
             MessageBox.Show("Error: " + msg, "Ooooops :(", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -40,7 +54,7 @@ namespace Twinkle
         private void btnAuthorize_Click(object sender, RoutedEventArgs e)
         {
             btnAuthorizeClicked?.Invoke(this, EventArgs.Empty);
-
+            
             lblLogin.Visibility = Visibility.Hidden;
             lblAuthorize.Visibility = Visibility.Hidden;
             btnAuthorize.Visibility = Visibility.Hidden;

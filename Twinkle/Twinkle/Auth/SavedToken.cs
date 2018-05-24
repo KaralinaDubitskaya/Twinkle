@@ -15,9 +15,13 @@ namespace Twinkle.Auth
         private const string _path = @"token/";
         private const string _name = @"/token.tk";
 
-        public XMLManager<Token> XmlManager { get; set; }
         public string Path { get { return _path; } }
         public string Name { get { return _name; } }
+
+        // Serialize and deserialize token
+        public XMLManager<Token> XmlManager { get; set; }
+
+        // True if user was authorized before and set check box "Remember me"
         public bool IsSet { get { return File.Exists(_path + _name); } }
 
         public SavedToken()
@@ -25,6 +29,7 @@ namespace Twinkle.Auth
             XmlManager = new XMLManager<Token>();
         }
 
+        // Load token from the file and deserialize it
         public Token Load()
         {
             if (IsSet)
@@ -40,6 +45,7 @@ namespace Twinkle.Auth
             }
         }
 
+        // Serialize token to XML and save it to the file
         public void Set(Token token)
         {
             using (var fileWriter = new FileWriter(_path, _name))

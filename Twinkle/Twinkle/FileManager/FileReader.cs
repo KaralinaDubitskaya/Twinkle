@@ -11,6 +11,7 @@ namespace Twinkle.FileManager
     {
         public Stream Stream { get; }
 
+        // Open an existing file
         public FileReader(string path, string name)
         {
             try
@@ -19,10 +20,12 @@ namespace Twinkle.FileManager
             }
             catch (Exception)
             {
+                // The file does not exist
                 Stream = null;
             }
         }
 
+        // Close stream
         public void Dispose()
         {
             Stream?.Close();

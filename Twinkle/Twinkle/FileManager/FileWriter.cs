@@ -11,6 +11,7 @@ namespace Twinkle.FileManager
     {
         public StreamWriter Stream { get; }
 
+        // Creates or opens a file for writing
         public FileWriter(string path, string name)
         {
             if (!Directory.Exists(path))
@@ -21,6 +22,7 @@ namespace Twinkle.FileManager
             Stream = File.CreateText(String.Format("{0}/{1}", path, name));
         }
 
+        // Close the stream
         public void Dispose()
         {
             Stream.Close();
