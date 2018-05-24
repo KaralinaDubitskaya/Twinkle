@@ -136,6 +136,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FileManager\FileReader.cs" />
+    <Compile Include="FileManager\FileWriter.cs" />
+    <Compile Include="XML\XMLManager.cs" />
     <Page Include="Views\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -144,7 +147,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Auth\SavedToken.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Models\Token.cs" />
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

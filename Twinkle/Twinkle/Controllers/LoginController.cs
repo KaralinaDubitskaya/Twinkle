@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tweetinvi;
+using Tweetinvi.Core.Credentials;
 
 
 namespace Twinkle.Controllers
@@ -25,6 +26,8 @@ namespace Twinkle.Controllers
         }
         #endregion
 
-
+        private TwitterCredentials _appCredentials;
+        private IWindow _Window;
+        private RememberToken rememberToken;
     }
 }
