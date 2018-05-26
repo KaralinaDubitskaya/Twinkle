@@ -37,6 +37,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\logo-round.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
@@ -137,8 +140,24 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\Controller.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\TweetController.cs" />
     <Compile Include="FileManager\FileReader.cs" />
     <Compile Include="FileManager\FileWriter.cs" />
+    <Compile Include="Models\Tweet.cs" />
+    <Compile Include="Models\Tweets.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Twitter\HomeTimeLine.cs" />
+    <Compile Include="Twitter\ListOfTweets.cs" />
+    <Compile Include="Twitter\UserTimeLine.cs" />
+    <Compile Include="Views\Dialogs\ErrorDialog.cs" />
+    <Compile Include="Views\Dialogs\SuccessDialog.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TweetWindow.xaml.cs">
+      <DependentUpon>TweetWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="XML\XMLManager.cs" />
     <Page Include="Views\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -155,6 +174,14 @@
       <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TweetWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -189,6 +216,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\logo-round.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\calendar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

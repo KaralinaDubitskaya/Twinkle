@@ -70,5 +70,10 @@ namespace Twinkle
         {
             btnLoginClicked?.Invoke(this, EventArgs.Empty);
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

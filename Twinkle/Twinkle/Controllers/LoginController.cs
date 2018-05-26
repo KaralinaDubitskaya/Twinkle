@@ -8,6 +8,8 @@ using Tweetinvi.Core.Credentials;
 using Twinkle.Auth;
 using Twinkle.Models;
 using System.Diagnostics;
+using Twinkle.Controllers;
+using Twinkle.Views;
 
 
 namespace Twinkle.Controllers
@@ -38,18 +40,18 @@ namespace Twinkle.Controllers
             set
             {
                 _window = value;
-                _window.btnAuthorizeClicked += _window_btnAuthorizeClicked;
-                _window.btnLoginClicked += _window_btnLoginClicked;
+                _window.btnAuthorizeClicked += Window_btnAuthorizeClicked;
+                _window.btnLoginClicked += Window_btnLoginClicked;
             }
         }
 
-        private void _window_btnAuthorizeClicked(object sender, EventArgs e)
+        private void Window_btnAuthorizeClicked(object sender, EventArgs e)
         {
             // Make the user go on the URL so that Twitter authenticates him and gives a PIN code
             Process.Start(CredentialsCreator.GetAuthorizationURL(AppCredentials));
         }
 
-        private void _window_btnLoginClicked(object sender, EventArgs e)
+        private void Window_btnLoginClicked(object sender, EventArgs e)
         {
             // With tthe pin code it is now possible to get the credentials back from Twitter
             ITwitterCredentials credentials = CredentialsCreator.GetCredentialsFromVerifierCode
@@ -61,14 +63,15 @@ namespace Twinkle.Controllers
                 Tweetinvi.Auth.SetCredentials(credentials);
             }
 
-            if (User.GetLoggedUser() != null)
+            if (Tweetinvi.User.GetLoggedUser() != null)
             {
-                new MainController { Window = new MainWindow() }.HandleNavigation(null);
+                var mainController = new MainController();
+                mainController.HandleNavigation(null);
 
                 if (Window.RememberChecked)
                 {
                     // Save user credentials
-                    _savedToken.Set(new Token(User.GetLoggedUser().Name, 
+                    SavedToken.Set(new Token(Tweetinvi.User.GetLoggedUser().Name, 
                         credentials.AccessToken, credentials.AccessTokenSecret));
                 }
 
@@ -82,35 +85,31 @@ namespace Twinkle.Controllers
                 Window.RepeatAuthorization();
             }
         }
-
-        // Was created if the user set check box "Remember me"
-        private SavedToken _savedToken;
-
+        
         public TwitterCredentials AppCredentials { get; set; }
 
         public override void HandleNavigation(object args)
         {
-            _savedToken = new SavedToken();
-
             // Identify the app
             AppCredentials = new TwitterCredentials("T5rVK7hFUW94mjVKJLI7WERus", 
                 "WJMlbomM54nMIdrABZyHfkaepBdkrdGnjJsvwbUo8xOeVXj4iD");
 
 
             // The user already was authorized
-            if (_savedToken.IsSet)
+            if (SavedToken.IsSet)
             {
                 // Load saved token from file
-                Token token = _savedToken.Load();
+                Token token = SavedToken.Load();
 
                 // Set up the application credentials
                 TwitterCredentials credentials = new TwitterCredentials(AppCredentials.ConsumerKey, 
                     AppCredentials.ConsumerSecret, token.AccessToken, token.AccessTokenSecret);
                 Tweetinvi.Auth.SetCredentials(credentials);
 
-                if (User.GetLoggedUser() != null)
+                if (Tweetinvi.User.GetLoggedUser() != null)
                 {
-                    new MainController { Window = new MainWindow() }.HandleNavigation(null);
+                    var mainController = new MainController();
+                    mainController.HandleNavigation(null);
                 }
                 else
                 {

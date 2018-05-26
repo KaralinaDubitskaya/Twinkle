@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Twinkle.Controllers;
 
 namespace Twinkle
 {
@@ -13,5 +14,10 @@ namespace Twinkle
     /// </summary>
     public partial class App : Application
     {
+        private void Setup(object sender, StartupEventArgs e)
+        {
+            LoginController loginController = new LoginController { Window = new LoginWindow() };
+            loginController.HandleNavigation(null);
+        }
     }
 }
