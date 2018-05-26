@@ -25,6 +25,7 @@ namespace Twinkle.Controllers
             event EventHandler btnSaveClicked;
             event EventHandler btnLogOutClicked;
             event EventHandler btnRetweetClicked;
+            event EventHandler btnLikeClicked;
 
             Tweets HomeTimeLine { get; set; }
             Models.User User { set; }
@@ -56,6 +57,7 @@ namespace Twinkle.Controllers
                 _window.btnSaveClicked += Window_btnSaveClicked;
                 _window.btnLogOutClicked += Window_btnLogOutClicked;
                 _window.btnRetweetClicked += Window_btnRetweetClicked;
+                _window.btnLikeClicked += Window_btnLikeClicked;
             }
         }
 
@@ -107,6 +109,12 @@ namespace Twinkle.Controllers
             {
                 new Views.Dialogs.SuccessDialog("Reetweet successfully");
             }
+        }
+
+        private void Window_btnLikeClicked(object sender, EventArgs e)
+        {
+            var tweet = sender as Models.Tweet;
+            Tweetinvi.Tweet.FavoriteTweet(tweet.ID);
         }
 
         private void Window_btnLogOutClicked(object sender, EventArgs e)

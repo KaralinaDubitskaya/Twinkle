@@ -33,6 +33,7 @@ namespace Twinkle.Views
         public event EventHandler btnSaveClicked;
         public event EventHandler btnLogOutClicked;
         public event EventHandler btnRetweetClicked;
+        public event EventHandler btnLikeClicked;
 
         private Tweets _tweets;
         public Tweets HomeTimeLine
@@ -84,6 +85,11 @@ namespace Twinkle.Views
         private void btnRetweet_Click(object sender, RoutedEventArgs e)
         {
             btnRetweetClicked?.Invoke(GetButtonParentTweet(sender as Button), EventArgs.Empty);
+        }
+
+        private void btnLike_Click(object sender, RoutedEventArgs e)
+        {
+            btnLikeClicked?.Invoke(GetButtonParentTweet(sender as Button), EventArgs.Empty);
         }
 
         private Tweet GetButtonParentTweet(Button button)

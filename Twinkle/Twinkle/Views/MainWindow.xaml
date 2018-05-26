@@ -59,7 +59,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
 
-                            <Button Grid.Row="0" Grid.Column="0" Style="{DynamicResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Width="25">
+                            <Button x:Name="btnLike" Grid.Row="0" Grid.Column="0" Style="{DynamicResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Width="25" Click="btnLike_Click">
                                 <Image HorizontalAlignment="Left" Margin="5" Source="/Resources/heart.png"/>
                             </Button>
                             <Button x:Name="btnRetweet" Grid.Row="0" Grid.Column="1" Style="{DynamicResource MaterialDesignFloatingActionButton}" Click="btnRetweet_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Width="25">
