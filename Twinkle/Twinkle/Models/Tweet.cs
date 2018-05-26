@@ -14,6 +14,7 @@ namespace Twinkle.Models
         public string Content { get; set; }
         public List<string> Pictures { get; set; }
         public string Picture { get { return Pictures.First(); } set { } }
+        public long ID { get; set; }
 
         public Tweet() { }
 
@@ -28,6 +29,7 @@ namespace Twinkle.Models
             Pictures = new List<string>();
             Content = tweet.Text;
             User = new User(tweet.CreatedBy);
+            ID = tweet.Id;
 
             foreach (var item in tweet.Media)
             {

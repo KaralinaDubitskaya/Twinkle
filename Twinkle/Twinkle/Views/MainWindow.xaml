@@ -42,7 +42,7 @@
                             <RowDefinition Height="auto"/>
                             <RowDefinition/>
                             <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="30"/>
                         </Grid.RowDefinitions>
 
                         <Label Content="{Binding User.Username}" Grid.Column="1" Grid.Row="0" FontSize="16" FontWeight="Bold" />
@@ -50,6 +50,22 @@
                         <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Source="{Binding User.ProfileImageUrl}" />
                         <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Content="{Binding Content}"/>
                         <Image Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="5" Source="{Binding Picture}" MaxHeight="300"/>
+                        <Grid Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Button Grid.Row="0" Grid.Column="0" Style="{DynamicResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Width="25">
+                                <Image HorizontalAlignment="Left" Margin="5" Source="/Resources/heart.png"/>
+                            </Button>
+                            <Button x:Name="btnRetweet" Grid.Row="0" Grid.Column="1" Style="{DynamicResource MaterialDesignFloatingActionButton}" Click="btnRetweet_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Width="25">
+                                <Image HorizontalAlignment="Left" Margin="5" Source="/Resources/retweet.png"/>
+                            </Button>
+                        </Grid>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
