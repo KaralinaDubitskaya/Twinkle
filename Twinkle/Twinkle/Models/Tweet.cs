@@ -17,7 +17,7 @@ namespace Twinkle.Models
         public string Content { get; set; }
         public List<string> Pictures { get; set; }
         public string Hashtegs { get; set; }
-        public string Picture { get { return Pictures.First(); } set { } }
+        public string Picture { get; set; }
         public long ID { get; set; }
 
         public string URL { get { return "https://twitter.com/" + User.ScreenName + "/status/" + ID.ToString(); } set { } }
@@ -33,6 +33,7 @@ namespace Twinkle.Models
         public Tweet(ITweet tweet)
         {
             Pictures = new List<string>();
+            Picture = (Pictures.Count != 0) ? Pictures.First() : null;
             Content = tweet.Text;
             User = new User(tweet.CreatedBy);
             ID = tweet.Id;
