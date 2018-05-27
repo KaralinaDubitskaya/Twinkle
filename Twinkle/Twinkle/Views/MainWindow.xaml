@@ -86,10 +86,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="130"/>
                 <RowDefinition Height="55"/>
-                <RowDefinition Height="55"/>
+                <RowDefinition Height="59"/>
+                <RowDefinition Height="65"/>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
-                <RowDefinition Height="375"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="246"/>
                 <RowDefinition Height="59"/>
             </Grid.RowDefinitions>
             <Image x:Name="imgProfile" Source="{Binding ProfileImageUrl}" Margin="0,10" OpacityMask="#FF5EA9DD" >
@@ -98,7 +101,7 @@
                 </Image.Clip>
             </Image>
             <Label x:Name="Username" Content="{Binding Username}" VerticalContentAlignment="Center" Grid.Row="1" Background="{x:Null}" Foreground="#DDFFFFFF" FontSize="18.667" FontWeight="Bold" HorizontalContentAlignment="Center" />
-            <Grid x:Name="Counter" Grid.Row="2">
+            <Grid x:Name="Counter" Grid.Row="3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="6*"/>
                     <RowDefinition Height="6*"/>
@@ -115,11 +118,14 @@
                 <Label Content="{Binding Followings}" RenderTransformOrigin="0.395,-0.5" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#DDFFFFFF" FontWeight="Bold"/>
                 <Label Content="{Binding Followers}" RenderTransformOrigin="0.395,-0.5" Grid.Column="2" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#DDFFFFFF" FontWeight="Bold"/>
             </Grid>
-            <Label x:Name="lblCity" Content="{Binding City}" Grid.Row="3" VerticalContentAlignment="Center" Foreground="#DDFFFFFF" Margin="30,0,0,0"/>
-            <Label x:Name="lblCreated" Content="{Binding AccountCreatedAt}" Grid.Row="4" VerticalContentAlignment="Center" Foreground="#DDFFFFFF" Margin="30,0,0,0"/>
-            <Image x:Name="imgLocation" HorizontalAlignment="Left" Height="25" Grid.Row="3" VerticalAlignment="Top" Width="25" Source="/Resources/location.png" Margin="5,0,0,0" OpacityMask="#FF5EA9DD"/>
-            <Image x:Name="imgCalendar" HorizontalAlignment="Left" Height="25" Grid.Row="4" VerticalAlignment="Top" Width="25" Source="/Resources/calendar.png" Margin="5,0,0,0"/>
-            <Button x:Name="btnSave" Content="Save" Grid.Row="6" Height="Auto" Margin="10,10.2,10,20" Background="#FF5EA9DD" Foreground="#FFF4F3F6" BorderBrush="#FF3D9DC7" Click="btnSave_Click"/>
+            <Label x:Name="lblDescription" Content="{Binding Description}" Grid.Row="5" VerticalContentAlignment="Center" Foreground="#DDFFFFFF" Margin="30,0,0,0"/>
+            <Label x:Name="lblCity" Content="{Binding City}" Grid.Row="6" VerticalContentAlignment="Center" Foreground="#DDFFFFFF" Margin="30,0,0,0"/>
+            <Label x:Name="lblCreated" Content="{Binding AccountCreatedAt}" Grid.Row="7" VerticalContentAlignment="Center" Foreground="#DDFFFFFF" Margin="30,0,0,0"/>
+            <Image x:Name="imgLocation" HorizontalAlignment="Left" Height="25" Grid.Row="5" VerticalAlignment="Top" Width="25" Source="/Resources/user.png" Margin="12,0,3,2" OpacityMask="#FF5EA9DD"/>
+            <Image x:Name="imgDescription" HorizontalAlignment="Left" Height="25" Grid.Row="6" VerticalAlignment="Top" Width="25" Source="/Resources/location.png" Margin="10,0,3,0" OpacityMask="#FF5EA9DD"/>
+            <Image x:Name="imgCalendar" HorizontalAlignment="Left" Height="25" Grid.Row="7" VerticalAlignment="Top" Width="25" Source="/Resources/calendar.png" Margin="10,0,3,0"/>
+            <Button x:Name="btnFollow" Visibility="{Binding Admin}" Content="{Binding Follow}" Grid.Row="2" Height="Auto" Margin="10,10.2,10,20" Background="#FF5EA9DD" Foreground="#FFF4F3F6" BorderBrush="#FF3D9DC7" Click="btnFollow_Click"/>
+            <Button x:Name="btnSave" Content="Save" Grid.Row="9" Height="Auto" Margin="10,10.2,10,20" Background="#FF5EA9DD" Foreground="#FFF4F3F6" BorderBrush="#FF3D9DC7" Click="btnSave_Click"/>
         </Grid>
         <Image x:Name="imgProfileSmall" Source="{Binding ProfileImageUrl}" Margin="694.8,5,226.6,14.6" OpacityMask="#FF5EA9DD" Grid.Column="2" >
             <Image.Clip>

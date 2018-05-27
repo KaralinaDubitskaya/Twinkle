@@ -36,6 +36,7 @@ namespace Twinkle.Views
         public event EventHandler btnLikeClicked;
         public event EventHandler btnUserClicked;
         public event EventHandler btnBrowseClicked;
+        public event EventHandler btnFollowClicked;
 
         private Tweets _tweets;
         public Tweets HomeTimeLine
@@ -51,7 +52,7 @@ namespace Twinkle.Views
             }
         }
         
-        public User User { set { UserPanel.DataContext = value; } }
+        public User User { set { UserPanel.DataContext = value; } get { return (Twinkle.Models.User)UserPanel.DataContext; } }
 
         public void AddTweet(ITweet tweet)
         {
@@ -112,6 +113,20 @@ namespace Twinkle.Views
         private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
             btnBrowseClicked?.Invoke(GetButtonParentTweet(sender as Button), EventArgs.Empty);
+        }
+
+        private void btnFollow_Click(object sender, RoutedEventArgs e)
+        {
+            if ((string)btnFollow.Content == "Follow")
+            {
+                btnFollow.Content = "Unfollow";
+            }
+            else
+            {
+                btnFollow.Content = "Follow";
+            }
+
+            btnFollowClicked?.Invoke(UserPanel.DataContext, EventArgs.Empty);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Twinkle.Models
         public string Username { get; set; }
         public string ScreenName { get; set; }
         public string ProfileImageUrl { get; set; }
+        public string Description { get; set; }
 
         public int Tweets { get; set; }
         public int Followings { get; set; }
@@ -20,6 +21,9 @@ namespace Twinkle.Models
 
         public string City { get; set; }
         public string AccountCreatedAt { get; set; }
+
+        public string Admin { get; set; }
+        public string Follow { get; set; }
 
         public User() { }
 
@@ -32,9 +36,18 @@ namespace Twinkle.Models
             Followers = user.FollowersCount;
             Followings = user.FriendsCount;
             ID = user.Id;
+            Description = user.Description;
 
             City = user.Location;
             AccountCreatedAt = "Joined " + String.Format("{0:MMMM  yyyy}", user.CreatedAt);
+
+            Admin = "Visible";
+            Follow = "Follow";
+
+            //Admin = (ID == Tweetinvi.User.GetLoggedUser().Id) ? "Hidden" : "Visible";
+
+            //var friends = Tweetinvi.User.GetFriendIds(Tweetinvi.User.GetLoggedUser());
+            //Follow = (friends.Contains(ID)) ? "Unfollow" : "Follow";
         }
     }
 }

@@ -91,8 +91,9 @@ namespace Twinkle.Controllers
         public override void HandleNavigation(object args)
         {
             // Identify the app
-            AppCredentials = new TwitterCredentials("T5rVK7hFUW94mjVKJLI7WERus", 
-                "WJMlbomM54nMIdrABZyHfkaepBdkrdGnjJsvwbUo8xOeVXj4iD");
+            //AppCredentials = new TwitterCredentials("T5rVK7hFUW94mjVKJLI7WERus", 
+            //    "WJMlbomM54nMIdrABZyHfkaepBdkrdGnjJsvwbUo8xOeVXj4iD");
+            AppCredentials = new TwitterCredentials("BYOymVcc9Yyk2mA67pLhWxS46", "YSsfV0VmFPEcQqjiZpEvZw28Ngdz4MzO6AEugef5sRzDNGkgmb");
 
 
             // The user already was authorized
