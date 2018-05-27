@@ -12,6 +12,7 @@ using Twinkle.Views.Dialogs;
 using System.Windows;
 using Twinkle.Auth;
 using System.IO;
+using System.Diagnostics;
 
 namespace Twinkle.Controllers
 {
@@ -28,6 +29,7 @@ namespace Twinkle.Controllers
             event EventHandler btnRetweetClicked;
             event EventHandler btnLikeClicked;
             event EventHandler btnUserClicked;
+            event EventHandler btnBrowseClicked;
 
             Tweets HomeTimeLine { get; set; }
             Models.User User { set; }
@@ -61,6 +63,7 @@ namespace Twinkle.Controllers
                 _window.btnRetweetClicked += Window_btnRetweetClicked;
                 _window.btnLikeClicked += Window_btnLikeClicked;
                 _window.btnUserClicked += Window_btnUserClicked;
+                _window.btnBrowseClicked += Window_btnBrowseClicked;
             }
         }
 
@@ -107,6 +110,12 @@ namespace Twinkle.Controllers
             var user = sender as Models.User;
             Window.HomeTimeLine = new UserTimeLine(user.ID).GetTweets();
             Window.User = new Models.User(Tweetinvi.User.GetUserFromId(user.ID));
+        }
+
+        private void Window_btnBrowseClicked(object sender, EventArgs e)
+        {
+            var tweet = sender as Models.Tweet;
+            Process.Start(tweet.URL);
         }
 
         private void Window_btnSaveClicked(object sender, EventArgs e)
