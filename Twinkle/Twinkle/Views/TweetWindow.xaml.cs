@@ -26,7 +26,7 @@ namespace Twinkle.Views
             InitializeComponent();
         }
 
-        private const int MAX_MSG_LEN = 140;
+        private const int MAX_MSG_LEN = 280;
         private string _fileName = "";
 
         public string TweetText { get { return tbTweet.Text; } }

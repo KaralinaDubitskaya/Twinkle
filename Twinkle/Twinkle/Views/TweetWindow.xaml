@@ -21,14 +21,14 @@
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
         <Button x:Name="btnTweet" Click="btnTweet_Click" Content="Tweet" IsDefault="True" Background="#FF5EA9DD" Foreground="White" BorderBrush="White" FontSize="14" FontFamily="Lucida Sans Unicode" Grid.Column="1" Height="Auto" Grid.ColumnSpan="2" Margin="0.2,3.8,15.2,12.4" Grid.Row="4" Grid.RowSpan="2"/>
-        <TextBox x:Name="tbTweet" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" Background="White" BorderThickness="1" VerticalContentAlignment="Top" Padding="5" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" Margin="0.2,0.6,15.2,3.8" FontSize="15" SelectionBrush="#FFFAF0EE" CaretBrush="#FFEBEBE7" MaxLength="140" TextChanged="tbTweet_TextChanged">
+        <TextBox x:Name="tbTweet" TextWrapping="Wrap" AcceptsReturn="True" Grid.Column="1" Grid.Row="1" Background="White" BorderThickness="1" VerticalContentAlignment="Top" Padding="5" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" Margin="0.2,0.6,15.2,3.8" FontSize="15" SelectionBrush="#FFFAF0EE" CaretBrush="#FFEBEBE7" MaxLength="280" TextChanged="tbTweet_TextChanged">
             <TextBox.BorderBrush>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.HighlightColorKey}}"/>
             </TextBox.BorderBrush>
         </TextBox>
         <Label Content="Left" Grid.Column="1" HorizontalAlignment="Left" Margin="0.2,0.2,0,0" Grid.Row="2" Height="24" VerticalAlignment="Top" Width="32"/>
         <Label Content="character(s)" Grid.Column="1" HorizontalAlignment="Left" Margin="47.2,0.2,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.224,-0.487" Height="26" Width="78"/>
-        <Label x:Name="lblLeft" Content="140" Grid.Column="1" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="16.2,0.2,0,0" Grid.Row="2" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.578,0.36" Width="43">
+        <Label x:Name="lblLeft" Content="280" Grid.Column="1" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="16.2,0.2,0,0" Grid.Row="2" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.578,0.36" Width="43">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

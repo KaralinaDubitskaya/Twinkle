@@ -41,8 +41,9 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
                             <RowDefinition/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="30"/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
 
                         <Label Content="{Binding User.Username}" Grid.Column="1" Grid.Row="0" FontSize="16" FontWeight="Bold" />
@@ -52,9 +53,10 @@
                         <Button x:Name="btnUser" Grid.Row="0" Grid.Column="0" Style="{DynamicResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Width="25" Click="btnUser_Click">
                             <Image Source="{Binding User.ProfileImageUrl}"/>
                         </Button>
-                        <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Content="{Binding Content}"/>
-                        <Image Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="5" Source="{Binding Picture}" MaxHeight="300"/>
-                        <Grid Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right">
+                        <TextBlock Padding="25, 10" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Content}" TextWrapping="Wrap"/>
+                        <TextBlock Padding="25, 0" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Text="{Binding Hashtegs}" Foreground="#FF4687D9"/>
+                        <Image Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="5" Source="{Binding Picture}" MaxHeight="300"/>
+                        <Grid Grid.Row="4" Grid.Column="2" HorizontalAlignment="Right">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="30"/>
                                 <ColumnDefinition Width="30"/>
