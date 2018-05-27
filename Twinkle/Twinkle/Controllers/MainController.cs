@@ -26,6 +26,7 @@ namespace Twinkle.Controllers
             event EventHandler btnLogOutClicked;
             event EventHandler btnRetweetClicked;
             event EventHandler btnLikeClicked;
+            event EventHandler btnUserClicked;
 
             Tweets HomeTimeLine { get; set; }
             Models.User User { set; }
@@ -58,6 +59,7 @@ namespace Twinkle.Controllers
                 _window.btnLogOutClicked += Window_btnLogOutClicked;
                 _window.btnRetweetClicked += Window_btnRetweetClicked;
                 _window.btnLikeClicked += Window_btnLikeClicked;
+                _window.btnUserClicked += Window_btnUserClicked;
             }
         }
 
@@ -95,6 +97,12 @@ namespace Twinkle.Controllers
         private void Window_btnProfileClicked(object sender, EventArgs e)
         {
             Window.HomeTimeLine = new UserTimeLine().GetTweets();
+        }
+
+        private void Window_btnUserClicked(object sender, EventArgs e)
+        {
+            var user = sender as Models.User;
+            Window.HomeTimeLine = new UserTimeLine(user.ID).GetTweets();
         }
 
         private void Window_btnSaveClicked(object sender, EventArgs e)

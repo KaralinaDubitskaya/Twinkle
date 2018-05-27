@@ -16,6 +16,7 @@ namespace Twinkle.Models
         public int Tweets { get; set; }
         public int Followings { get; set; }
         public int Followers { get; set; }
+        public long ID { get; set; }
 
         public string City { get; set; }
         public string AccountCreatedAt { get; set; }
@@ -30,6 +31,7 @@ namespace Twinkle.Models
             Tweets = user.StatusesCount;
             Followers = user.FollowersCount;
             Followings = user.FriendsCount;
+            ID = user.Id;
 
             City = user.Location;
             AccountCreatedAt = "Joined " + String.Format("{0:MMMM  yyyy}", user.CreatedAt);

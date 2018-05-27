@@ -25,12 +25,25 @@ namespace Twinkle.Views
             InitializeComponent();
         }
 
+        private const int MAX_MSG_LEN = 140;
+
         public string TweetText { get { return tbTweet.Text; } }
         public event EventHandler btnTweetClicked;
+        public event EventHandler btnBrowseClicked;
 
         private void btnTweet_Click(object sender, RoutedEventArgs e)
         {
             btnTweetClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void tbTweet_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lblLeft.Content = MAX_MSG_LEN - tbTweet.Text.Length;
+        }
+
+        private void btnBrowse_Click(object sender, RoutedEventArgs e)
+        {
+            btnBrowseClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

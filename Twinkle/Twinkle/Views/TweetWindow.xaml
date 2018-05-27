@@ -14,16 +14,32 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="14*"/>
-            <RowDefinition Height="195*"/>
-            <RowDefinition Height="14*"/>
-            <RowDefinition Height="34*"/>
+            <RowDefinition Height="142*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="42*"/>
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="btnTweet" Click="btnTweet_Click" Content="Tweet" IsDefault="True" Background="#FF5EA9DD" Foreground="White" BorderBrush="White" FontSize="14" FontFamily="Lucida Sans Unicode" Grid.Column="1" Height="Auto" Grid.ColumnSpan="2" Margin="0.2,1,15.6,12.4" Grid.Row="3" Grid.RowSpan="2"/>
-        <TextBox x:Name="tbTweet" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" Background="White" BorderThickness="1" VerticalContentAlignment="Top" Padding="5" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" Margin="0.2,0.4,15.6,14.2" Grid.RowSpan="2" FontSize="15" SelectionBrush="#FFFAF0EE" CaretBrush="#FFEBEBE7" MaxLength="140">
+        <Button x:Name="btnTweet" Click="btnTweet_Click" Content="Tweet" IsDefault="True" Background="#FF5EA9DD" Foreground="White" BorderBrush="White" FontSize="14" FontFamily="Lucida Sans Unicode" Grid.Column="1" Height="Auto" Grid.ColumnSpan="2" Margin="0.2,3.8,15.2,12.4" Grid.Row="4" Grid.RowSpan="2"/>
+        <TextBox x:Name="tbTweet" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" Background="White" BorderThickness="1" VerticalContentAlignment="Top" Padding="5" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" Margin="0.2,0.6,15.2,3.8" FontSize="15" SelectionBrush="#FFFAF0EE" CaretBrush="#FFEBEBE7" MaxLength="140" TextChanged="tbTweet_TextChanged">
             <TextBox.BorderBrush>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.HighlightColorKey}}"/>
             </TextBox.BorderBrush>
         </TextBox>
+        <Label Content="Left" Grid.Column="1" HorizontalAlignment="Left" Margin="0.2,0.2,0,0" Grid.Row="2" Height="24" VerticalAlignment="Top" Width="32"/>
+        <Label Content="character(s)" Grid.Column="1" HorizontalAlignment="Left" Margin="47.2,0.2,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.224,-0.487" Height="26" Width="78"/>
+        <Label x:Name="lblLeft" Content="140" Grid.Column="1" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="16.2,0.2,0,0" Grid.Row="2" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.578,0.36" Width="43">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="1.315"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Media: " Grid.Column="1" HorizontalAlignment="Left" Margin="0.2,0.8,0,0" Grid.Row="3" VerticalAlignment="Top" Height="26" Width="50"/>
+        <Label x:Name="lblMedia" Content="-" Grid.Column="1" HorizontalAlignment="Left" Margin="47.2,0.8,0,0" Grid.Row="3" VerticalAlignment="Top" Width="97" Height="26"/>
+        <Button x:Name="btnBrowse" Click="btnBrowse_Click" Content="Browse" IsDefault="True" Background="#FF5EA9DD" Foreground="White" BorderBrush="White" FontSize="11" FontFamily="Lucida Sans Unicode" Grid.Column="1" Height="Auto" Margin="129.2,0.8,15.2,1.2" Grid.Row="3" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

@@ -13,9 +13,21 @@ namespace Twinkle.Twitter
         private const string _name = "UserTimeLine";
         public override string Name { get { return _name; } }
 
+        private long _id;
+
+        public UserTimeLine()
+        {
+            _id = Tweetinvi.User.GetLoggedUser().Id;
+        }
+
+        public UserTimeLine(long id)
+        {
+            _id = id;
+        }
+
         public override Tweets GetTweets()
         {
-            var userTimeLine = Timeline.GetUserTimeline(Tweetinvi.User.GetLoggedUser());
+            var userTimeLine = Timeline.GetUserTimeline(_id);
             Tweets tweets = new Tweets();
 
             if (userTimeLine != null)

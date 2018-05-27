@@ -34,6 +34,7 @@ namespace Twinkle.Views
         public event EventHandler btnLogOutClicked;
         public event EventHandler btnRetweetClicked;
         public event EventHandler btnLikeClicked;
+        public event EventHandler btnUserClicked;
 
         private Tweets _tweets;
         public Tweets HomeTimeLine
@@ -95,6 +96,16 @@ namespace Twinkle.Views
         private Tweet GetButtonParentTweet(Button button)
         {
             return ((((button?.Parent as Grid).Parent as Grid).Children as UIElementCollection)[0] as Label).DataContext as Tweet;
+        }
+
+        private void btnUser_Click(object sender, RoutedEventArgs e)
+        {
+            btnUserClicked?.Invoke(GetButtonParentUser(sender as Button), EventArgs.Empty);
+        }
+
+        private User GetButtonParentUser(Button button)
+        {
+            return ((((button?.Parent as Grid).Children as UIElementCollection)[0] as Label).DataContext as Tweet).User;
         }
     }
 }
