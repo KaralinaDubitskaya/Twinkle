@@ -27,6 +27,7 @@ namespace Twinkle.Views
         }
 
         private const int MAX_MSG_LEN = 280;
+        private const int MAX_FILE_NAME_LEN = 15;
         private string _fileName = "";
 
         public string TweetText { get { return tbTweet.Text; } }
@@ -36,7 +37,14 @@ namespace Twinkle.Views
             set
             {
                 _fileName = value;
-                lblMedia.Content = System.IO.Path.GetFileName(_fileName);
+
+                var name = System.IO.Path.GetFileName(_fileName);
+                if (name.Length > MAX_FILE_NAME_LEN)
+                {
+                    // Cut the end of the filename
+                    name = name.Substring(0, MAX_FILE_NAME_LEN - 3) + "...";
+                }
+                lblMedia.Content = name;
             }
         }
         public event EventHandler btnTweetClicked;

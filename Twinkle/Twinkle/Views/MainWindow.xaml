@@ -53,7 +53,7 @@
                         <Button x:Name="btnUser" Grid.Row="0" Grid.Column="0" Style="{DynamicResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Width="25" Click="btnUser_Click">
                             <Image Source="{Binding User.ProfileImageUrl}"/>
                         </Button>
-                        <TextBlock Padding="25, 10" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Content}" TextWrapping="Wrap"/>
+                        <TextBlock Padding="25, 10" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Content}" TextWrapping="Wrap" Focusable="True"/>
                         <TextBlock Padding="25, 0" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Text="{Binding Hashtegs}" Foreground="#FF4687D9"/>
                         <Image Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="5" Source="{Binding Picture}" MaxHeight="300"/>
                         <Grid Grid.Row="4" Grid.Column="2" HorizontalAlignment="Right">

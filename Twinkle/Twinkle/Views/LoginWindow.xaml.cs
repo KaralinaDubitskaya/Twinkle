@@ -73,6 +73,7 @@ namespace Twinkle
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            // Close app
             Application.Current.Shutdown();
         }
     }

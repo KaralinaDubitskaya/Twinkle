@@ -39,7 +39,7 @@ namespace Twinkle.Views
         public event EventHandler btnFollowClicked;
 
         private Tweets _tweets;
-        public Tweets HomeTimeLine
+        public Tweets TimeLine
         {
             get
             {
@@ -57,6 +57,7 @@ namespace Twinkle.Views
         public void AddTweet(ITweet tweet)
         {
             _tweets.Insert(0, new Tweet(tweet));
+            // Refresh timeline
             lbTimeline.Dispatcher.BeginInvoke(new Action(lbTimeline.Items.Refresh));
         }
 
@@ -95,9 +96,9 @@ namespace Twinkle.Views
             btnLikeClicked?.Invoke(GetButtonParentTweet(sender as Button), EventArgs.Empty);
         }
 
-        private Tweet GetButtonParentTweet(Button button)
+        private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
-            return ((((button?.Parent as Grid).Parent as Grid).Children as UIElementCollection)[0] as Label).DataContext as Tweet;
+            btnBrowseClicked?.Invoke(GetButtonParentTweet(sender as Button), EventArgs.Empty);
         }
 
         private void btnUser_Click(object sender, RoutedEventArgs e)
@@ -105,14 +106,16 @@ namespace Twinkle.Views
             btnUserClicked?.Invoke(GetButtonParentUser(sender as Button), EventArgs.Empty);
         }
 
-        private User GetButtonParentUser(Button button)
+        private Tweet GetButtonParentTweet(Button button)
         {
-            return ((((button?.Parent as Grid).Children as UIElementCollection)[0] as Label).DataContext as Tweet).User;
+            // Get a tweet that corresponds to the button
+            return ((((button?.Parent as Grid).Parent as Grid).Children as UIElementCollection)[0] as Label).DataContext as Tweet;
         }
 
-        private void btnBrowse_Click(object sender, RoutedEventArgs e)
+        private User GetButtonParentUser(Button button)
         {
-            btnBrowseClicked?.Invoke(GetButtonParentTweet(sender as Button), EventArgs.Empty);
+            // Get a user that corresponds to the button
+            return ((((button?.Parent as Grid).Children as UIElementCollection)[0] as Label).DataContext as Tweet).User;
         }
 
         private void btnFollow_Click(object sender, RoutedEventArgs e)

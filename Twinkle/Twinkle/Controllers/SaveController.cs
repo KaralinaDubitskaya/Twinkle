@@ -12,7 +12,7 @@ namespace Twinkle.Controllers
 {
     public class SaveController : Controller
     {
-
+        // SaveWindow
         public interface IWindow
         {
             event EventHandler btnSaveClicked;
@@ -20,11 +20,11 @@ namespace Twinkle.Controllers
 
             string Path { get; set; }
 
-            IList<string> ListTypes { set; }
-            string ListTypeSelected { get; }
+            IList<string> TimeLines { set; }
+            string SelectedTimeLine { get; }
 
-            IList<string> ParserNames { set; }
-            string ParserSelect { get; }
+            IList<string> Parsers { set; }
+            string SelectedParser { get; }
 
             void Show();
             void Hide();
@@ -42,23 +42,28 @@ namespace Twinkle.Controllers
                 _window.btnBrowseClicked += Window_btnBrowseClicked;
             }
         }
+
+        // Avaible parsers (Text, XML, etc.)
         public IList<Parser.Parser> Parsers { get; set; }
-        public IList<ListOfTweets> Tweets { get; set; }
+        // Avaible timelines (HomeTimeLine, UserTimeLine)
+        public IList<ListOfTweets> TimeLines { get; set; }
 
         private void Window_btnSaveClicked(object sender, EventArgs e)
         {
-            Tweets tweets = (from i in Tweets where i.Name == Window.ListTypeSelected select i).First().GetTweets();
-            Parser.Parser parser = (from i in Parsers where i.Name == Window.ParserSelect select i).First();
+            // Load selected timeline
+            Tweets tweets = (from i in TimeLines where i.Name == Window.SelectedTimeLine select i).First().GetTweets();
+            // Load se;ected parser
+            Parser.Parser parser = (from i in Parsers where i.Name == Window.SelectedParser select i).First();
 
             if (parser == null)
             {
-                new Twinkle.Views.Dialogs.ErrorDialog("There is no parser with this name");
+                new ErrorDialog("There is no parser with this name");
                 return;
             }
 
             if (tweets == null)
             {
-                new Twinkle.Views.Dialogs.ErrorDialog("There was a problem loading the list");
+                new ErrorDialog("There was a problem loading the list");
                 return;
             }
 
@@ -71,6 +76,7 @@ namespace Twinkle.Controllers
                 }
                 else
                 {
+                    // Add proper extension
                     path = String.Concat(Window.Path, parser.Extension);
                 }
 
@@ -78,19 +84,20 @@ namespace Twinkle.Controllers
                 parser.Save(tweets, fileManager.Stream);
                 fileManager.Dispose();
 
-                Views.Dialogs.SuccessDialog successDialog = new SuccessDialog("The backup was successfully performed");
+                SuccessDialog successDialog = new SuccessDialog("The backup was successfully performed");
                 Window.Hide();
 
             }
             catch (Exception ex)
             {
-                new Views.Dialogs.ErrorDialog(ex.Message);
+                new ErrorDialog(ex.Message);
             }
 
         }
 
         private void Window_btnBrowseClicked(object sender, EventArgs e)
         {
+            // User selects the path to the file
             PathDialog pathDialog = new PathDialog();
             pathDialog.OnPathChanged += PathDialog_OnPathChanged;
             pathDialog.OpenPathDialog();
@@ -103,12 +110,15 @@ namespace Twinkle.Controllers
 
         public override void HandleNavigation(object args)
         {
-            Tweets = new List<ListOfTweets> { new HomeTimeLine(), new UserTimeLine() };
-            Window.ListTypes = (from i in Tweets select i.Name).ToList();
+            // Load types of timelines
+            TimeLines = new List<ListOfTweets> { new HomeTimeLine(), new UserTimeLine() };
+            Window.TimeLines = (from i in TimeLines select i.Name).ToList();
 
+            // Load types of parsers
             Parsers = new List<Parser.Parser> { new XmlParser(), new TextParser() };
-            Window.ParserNames = (from i in Parsers select i.Name).ToList();
+            Window.Parsers = (from i in Parsers select i.Name).ToList();
 
+            // Show SaveWindow
             Window.Show();
         }
 

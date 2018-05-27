@@ -13,13 +13,15 @@ namespace Twinkle.Models
     [Serializable]
     public class Tweet
     {
-        public User User { get; set; }
-        public string Content { get; set; }
-        public List<string> Pictures { get; set; }
-        public string Hashtegs { get; set; }
-        public string Picture { get; set; }
-        public long ID { get; set; }
+        public User User { get; set; }                // User who posted the tweet 
+        public string Content { get; set; }           // Text of the tweet
+        public List<string> Pictures { get; set; }    // Uploaded pictures
+        public string Hashtags { get; set; }          
+        public string Picture { get; set; }           // First uploaded picture (only one)
 
+        public long ID { get; set; }                  // Tweet id
+
+        // Tweet URL
         public string URL { get { return "https://twitter.com/" + User.ScreenName + "/status/" + ID.ToString(); } set { } }
 
         public Tweet() { }
@@ -33,11 +35,10 @@ namespace Twinkle.Models
         public Tweet(ITweet tweet)
         {
             Pictures = new List<string>();
-            Picture = (Pictures.Count != 0) ? Pictures.First() : null;
             Content = tweet.Text;
             User = new User(tweet.CreatedBy);
             ID = tweet.Id;
-            Hashtegs = "";
+            Hashtags = "";
 
             foreach (var item in tweet.Media)
             {
@@ -47,12 +48,12 @@ namespace Twinkle.Models
                 }
             }
 
-            var a = tweet.Text;
-
-
+            Picture = (Pictures.Count != 0) ? Pictures.First() : null;
+            
             foreach (var item in tweet.Hashtags)
             {
-                Hashtegs += "#" + item.Text + "  ";
+                Hashtags += "#" + item.Text + "  ";
+                // Remove hashtags from tweet text
                 Content = Content.Remove(Content.IndexOf("#" + item.Text), item.Text.Length + 1);
             }
         }

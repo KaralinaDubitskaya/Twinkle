@@ -25,40 +25,35 @@ namespace Twinkle.Views
             InitializeComponent();
         }
 
-        public IList<string> ListTypes { set { cbListTypes.DataContext = value; } }
-
-        public string ListTypeSelected
+        // HomeTimeline, UserTimeLine, etc.
+        public IList<string> TimeLines { set { cbTimeline.DataContext = value; } }
+        public string SelectedTimeLine
         {
             get
             {
-                if (cbTypes.SelectedItem != null)
+                if (cbFileTypes.SelectedItem != null)
                 {
-                    return cbListTypes.SelectedItem.ToString();
+                    return cbTimeline.SelectedItem.ToString();
                 }
                 return null;
             }
         }
 
-        public IList<string> ParserNames
-        {
-            set
-            {
-                cbTypes.DataContext = value;
-            }
-        }
-
-        public string ParserSelect
+        // XMLParser, TextParser, etc.
+        public IList<string> Parsers { set { cbFileTypes.DataContext = value; } }
+        public string SelectedParser
         {
             get
             {
-                if (cbTypes.SelectedItem != null)
+                if (cbFileTypes.SelectedItem != null)
                 {
-                    return cbTypes.SelectedItem.ToString();
+                    return cbFileTypes.SelectedItem.ToString();
                 }
                 return null;
             }
         }
 
+        // Selected path
         public string Path
         {
             get { return tbPath.Text; }
@@ -76,13 +71,13 @@ namespace Twinkle.Views
                 return;
             }
 
-            if (ListTypeSelected == null)
+            if (SelectedTimeLine == null)
             {
                 new Views.Dialogs.ErrorDialog("Please, select a type of list");
                 return;
             }
 
-            if (ParserSelect == null)
+            if (SelectedParser == null)
             {
                 new Views.Dialogs.ErrorDialog("Please, select a parser");
                 return;
@@ -93,6 +88,7 @@ namespace Twinkle.Views
 
         private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
+            // Choose file path
             btnBrowseClicked?.Invoke(this, EventArgs.Empty);
         }
     }

@@ -16,15 +16,18 @@ namespace Twinkle.Models
         public string Description { get; set; }
 
         public int Tweets { get; set; }
-        public int Followings { get; set; }
-        public int Followers { get; set; }
-        public long ID { get; set; }
+        public int Followings { get; set; }   // number of friends
+        public int Followers { get; set; }    // number of followers
+        public long ID { get; set; }          // user id
 
         public string City { get; set; }
         public string AccountCreatedAt { get; set; }
 
-        public string Admin { get; set; }
-        public string Follow { get; set; }
+        public string Admin { get; set; }     // is logged user
+        public string Follow { get; set; }    // is followed by logged user
+
+        // Max length of the description
+        private const int _maxDescriptionLen = 35;   
 
         public User() { }
 
@@ -38,12 +41,17 @@ namespace Twinkle.Models
             Followings = user.FriendsCount;
             ID = user.Id;
             Description = user.Description;
+            if (Description.Length > _maxDescriptionLen)
+            {
+                // Cut the end of the description
+                Description = Description.Substring(0, _maxDescriptionLen - 3) + "...";
+            }
 
             City = user.Location;
             AccountCreatedAt = "Joined " + String.Format("{0:MMMM  yyyy}", user.CreatedAt);
 
-            Admin = "Visible";
-            Follow = "Follow";
+            Admin = "Visible";    // not logged user
+            Follow = "Follow";    // isn't followed by the logged user
         }
     }
 }

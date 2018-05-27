@@ -12,8 +12,8 @@ namespace Twinkle.Controllers
         #region interface IWindow
         public interface IWindow
         {
-            string TweetText { get; }  // return entered tweet text
-            string FileName { get; set; }
+            string TweetText { get; }      // entered tweet text
+            string FileName { get; set; }  // media (picture)
             event EventHandler btnTweetClicked;
             event EventHandler btnBrowseClicked;
             
@@ -41,6 +41,7 @@ namespace Twinkle.Controllers
 
         private void Window_btnBrowseClicked(object sender, EventArgs e)
         {
+            // Upload the picture
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)

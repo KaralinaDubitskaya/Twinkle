@@ -19,6 +19,7 @@ namespace Twinkle.Controllers
     public class MainController : Controller
     {
         #region interface IWindow
+        // Main Window
         public interface IWindow
         {
             event EventHandler btnTweetClicked;
@@ -32,7 +33,7 @@ namespace Twinkle.Controllers
             event EventHandler btnBrowseClicked;
             event EventHandler btnFollowClicked;
 
-            Tweets HomeTimeLine { get; set; }
+            Tweets TimeLine { get; set; }
             Models.User User { get; set; }
 
             void AddTweet(ITweet tweet);
@@ -71,12 +72,17 @@ namespace Twinkle.Controllers
 
         public override void HandleNavigation(object args)
         {
-            Window.HomeTimeLine = new HomeTimeLine().GetTweets();
+            // Show HomeTimeLine
+            Window.TimeLine = new HomeTimeLine().GetTweets();
+            // Show info about logged user
             var user = new Models.User(Tweetinvi.User.GetLoggedUser());
+            // Hide button "Follow"
             user.Admin = "Hidden";
+
             Window.User = user;
             Window.Show();
 
+            // Check for new tweets
             var stream = Tweetinvi.Stream.CreateUserStream();
 
             stream.TweetCreatedByFriend += (sender, e) =>
@@ -89,38 +95,51 @@ namespace Twinkle.Controllers
                 Window.AddTweet(e.Tweet);
             };
 
+            // Asynchronously update tweets
             stream.StartStreamAsync();
         }
 
         private void Window_btnTweetClicked(object sender, EventArgs e)
         {
+            // Show TweetWindow
             new TweetController { Window = new TweetWindow() }.HandleNavigation(TweetCreated);
         }
 
         private void Window_btnHomeClicked(object sender, EventArgs e)
         {
-            Window.HomeTimeLine = new HomeTimeLine().GetTweets();
+            // Show HomeTimeLine
+            Window.TimeLine = new HomeTimeLine().GetTweets();
+            // Show info about logged user
             var user = new Models.User(Tweetinvi.User.GetLoggedUser());
+            // Hide button "Follow"
             user.Admin = "Hidden";
             Window.User = user;
         }
 
         private void Window_btnProfileClicked(object sender, EventArgs e)
         {
-            Window.HomeTimeLine = new UserTimeLine().GetTweets();
+            // Show logged user's timeline
+            Window.TimeLine = new UserTimeLine().GetTweets();
+            // Show info about logged user
             var user = new Models.User(Tweetinvi.User.GetLoggedUser());
+            // Hide button "Follow"
             user.Admin = "Hidden";
             Window.User = user;
         }
 
         private void Window_btnUserClicked(object sender, EventArgs e)
         {
+            // Get selected user timeline
             var user = sender as Models.User;
-            Window.HomeTimeLine = new UserTimeLine(user.ID).GetTweets();
+            Window.TimeLine = new UserTimeLine(user.ID).GetTweets();
+            // Show info about selected user
             var usr = new Models.User(Tweetinvi.User.GetUserFromId(user.ID));
+            // Show button "(Un)Follow"
             usr.Admin = "Visible";
 
+            // Check if selected user is one of the logged user's followings
             var friends = Tweetinvi.User.GetFriendIds(Tweetinvi.User.GetLoggedUser());
+            // Set button content as "Follow" or "Unfollow"
             usr.Follow = (friends.Contains(usr.ID)) ? "Unfollow" : "Follow";
 
             Window.User = usr;
@@ -129,11 +148,13 @@ namespace Twinkle.Controllers
         private void Window_btnBrowseClicked(object sender, EventArgs e)
         {
             var tweet = sender as Models.Tweet;
+            // Open tweet's URL in browser
             Process.Start(tweet.URL);
         }
 
         private void Window_btnSaveClicked(object sender, EventArgs e)
         {
+            // Show SaveWindow
             SaveController saveController = new SaveController { Window = new SaveWindow() };
             saveController.HandleNavigation(null);
         }
@@ -146,10 +167,12 @@ namespace Twinkle.Controllers
             var friends = Tweetinvi.User.GetFriendIds(loggedUser);
             if (friends.Contains(user.ID))
             {
+                // Unfollow selected user
                 loggedUser.UnFollowUserAsync(user.ID);
             }
             else
             {
+                // Follow selected user
                 loggedUser.FollowUserAsync(user.ID);
             }
         }
@@ -157,24 +180,29 @@ namespace Twinkle.Controllers
         private void Window_btnRetweetClicked(object sender, EventArgs e)
         {
             var tweet = sender as Models.Tweet;
+            // Retweet selected tweet
             if (Tweetinvi.Tweet.PublishRetweet(tweet.ID) != null)
             {
-                new Views.Dialogs.SuccessDialog("Reetweet successfully");
+                new SuccessDialog("Reetweet successfully");
             }
         }
 
         private void Window_btnLikeClicked(object sender, EventArgs e)
         {
             var tweet = sender as Models.Tweet;
+            // Like selected tweet
             Tweetinvi.Tweet.FavoriteTweet(tweet.ID);
         }
 
         private void Window_btnLogOutClicked(object sender, EventArgs e)
         {
+            // Unset credentials
             Tweetinvi.Auth.SetCredentials(null);
+            // Delete saved token
             SavedToken.Delete();
 
             Window.Close();
+            // Show LoginWindow
             new LoginController { Window = new LoginWindow() }.HandleNavigation(null);
         }
 
@@ -190,6 +218,7 @@ namespace Twinkle.Controllers
                 {
                     try
                     {
+                        // Load picture
                         byte[] file = File.ReadAllBytes(window.FileName);
                         var image = Upload.UploadImage(file);
                         parameters.Medias = new List<Tweetinvi.Core.Interfaces.DTO.IMedia> { image };

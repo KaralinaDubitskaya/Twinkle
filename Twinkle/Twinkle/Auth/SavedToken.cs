@@ -12,7 +12,9 @@ namespace Twinkle.Auth
 {
     public static class SavedToken
     {
+        // The folder in which the token is stored
         private const string _path = @"token/";
+        // The file in which the token is stored
         private const string _name = @"/token.tk";
 
         public static string Path { get { return _path; } }
@@ -24,10 +26,10 @@ namespace Twinkle.Auth
         // Load token from the file and deserialize it
         public static Token Load()
         {
-            var XmlManager = new XMLManager<Token>();
-
+            // Token has been saved by user
             if (IsSet)
             {
+                var XmlManager = new XMLManager<Token>();
                 using (var fileReader = new FileReader(_path, _name))
                 {
                     return XmlManager.Deserialize(fileReader.Stream);
@@ -43,13 +45,13 @@ namespace Twinkle.Auth
         public static void Set(Token token)
         {
             var XmlManager = new XMLManager<Token>();
-
             using (var fileWriter = new FileWriter(_path, _name))
             {
                 XmlManager.Serialize(fileWriter.Stream, token);
             }
         }
 
+        // Delete token when user want to LogOut
         public static void Delete()
         {
             if (IsSet)

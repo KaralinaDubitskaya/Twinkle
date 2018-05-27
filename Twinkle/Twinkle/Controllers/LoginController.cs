@@ -87,14 +87,13 @@ namespace Twinkle.Controllers
         }
         
         public TwitterCredentials AppCredentials { get; set; }
+        private const string _consumerKey = "T5rVK7hFUW94mjVKJLI7WERus";
+        private const string _consumerSecret = "WJMlbomM54nMIdrABZyHfkaepBdkrdGnjJsvwbUo8xOeVXj4iD";
 
         public override void HandleNavigation(object args)
         {
             // Identify the app
-            //AppCredentials = new TwitterCredentials("T5rVK7hFUW94mjVKJLI7WERus", 
-            //    "WJMlbomM54nMIdrABZyHfkaepBdkrdGnjJsvwbUo8xOeVXj4iD");
-            AppCredentials = new TwitterCredentials("BYOymVcc9Yyk2mA67pLhWxS46", "YSsfV0VmFPEcQqjiZpEvZw28Ngdz4MzO6AEugef5sRzDNGkgmb");
-
+            AppCredentials = new TwitterCredentials(_consumerKey,_consumerSecret); 
 
             // The user already was authorized
             if (SavedToken.IsSet)

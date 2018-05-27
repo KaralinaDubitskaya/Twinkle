@@ -8,6 +8,7 @@ namespace Twinkle
 {
     public class PathDialogEventArgs : EventArgs
     {
+        // Selected path
         public string Path { get; set; }
     }
 }
