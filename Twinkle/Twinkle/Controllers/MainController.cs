@@ -134,7 +134,8 @@ namespace Twinkle.Controllers
 
         private void Window_btnSaveClicked(object sender, EventArgs e)
         {
-
+            SaveController saveController = new SaveController { Window = new SaveWindow() };
+            saveController.HandleNavigation(null);
         }
 
         private void Window_btnFollowClicked(object sender, EventArgs e)

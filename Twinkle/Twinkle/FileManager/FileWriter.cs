@@ -22,6 +22,11 @@ namespace Twinkle.FileManager
             Stream = File.CreateText(String.Format("{0}/{1}", path, name));
         }
 
+        public FileWriter(string path)
+        {
+            Stream = File.CreateText(path);
+        }
+
         // Close the stream
         public void Dispose()
         {

@@ -177,19 +177,28 @@
     </ApplicationDefinition>
     <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\SaveController.cs" />
     <Compile Include="Controllers\TweetController.cs" />
+    <Compile Include="EventArgs\PathDialogEventArgs.cs" />
     <Compile Include="FileManager\FileReader.cs" />
     <Compile Include="FileManager\FileWriter.cs" />
     <Compile Include="Models\Tweet.cs" />
     <Compile Include="Models\Tweets.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Parser\Parser.cs" />
+    <Compile Include="Parser\TextParser.cs" />
+    <Compile Include="Parser\XMLParser.cs" />
     <Compile Include="Twitter\HomeTimeLine.cs" />
     <Compile Include="Twitter\ListOfTweets.cs" />
     <Compile Include="Twitter\UserTimeLine.cs" />
     <Compile Include="Views\Dialogs\ErrorDialog.cs" />
+    <Compile Include="Views\Dialogs\PathDialog.cs" />
     <Compile Include="Views\Dialogs\SuccessDialog.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SaveWindow.xaml.cs">
+      <DependentUpon>SaveWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TweetWindow.xaml.cs">
       <DependentUpon>TweetWindow.xaml</DependentUpon>
@@ -211,6 +220,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SaveWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

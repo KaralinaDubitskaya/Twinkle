@@ -20,7 +20,7 @@ namespace Twinkle.Models
         public string Picture { get { return Pictures.First(); } set { } }
         public long ID { get; set; }
 
-        public string URL { get { return "https://twitter.com/" + User.ScreenName + "/status/" + ID.ToString(); } }
+        public string URL { get { return "https://twitter.com/" + User.ScreenName + "/status/" + ID.ToString(); } set { } }
 
         public Tweet() { }
 

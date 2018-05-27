@@ -7,6 +7,7 @@ using Tweetinvi.Core.Interfaces;
 
 namespace Twinkle.Models
 {
+    [Serializable]
     public class User
     {
         public string Username { get; set; }
@@ -43,11 +44,6 @@ namespace Twinkle.Models
 
             Admin = "Visible";
             Follow = "Follow";
-
-            //Admin = (ID == Tweetinvi.User.GetLoggedUser().Id) ? "Hidden" : "Visible";
-
-            //var friends = Tweetinvi.User.GetFriendIds(Tweetinvi.User.GetLoggedUser());
-            //Follow = (friends.Contains(ID)) ? "Unfollow" : "Follow";
         }
     }
 }
