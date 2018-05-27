@@ -93,17 +93,20 @@ namespace Twinkle.Controllers
         private void Window_btnHomeClicked(object sender, EventArgs e)
         {
             Window.HomeTimeLine = new HomeTimeLine().GetTweets();
+            Window.User = new Models.User(Tweetinvi.User.GetLoggedUser());
         }
 
         private void Window_btnProfileClicked(object sender, EventArgs e)
         {
             Window.HomeTimeLine = new UserTimeLine().GetTweets();
+            Window.User = new Models.User(Tweetinvi.User.GetLoggedUser());
         }
 
         private void Window_btnUserClicked(object sender, EventArgs e)
         {
             var user = sender as Models.User;
             Window.HomeTimeLine = new UserTimeLine(user.ID).GetTweets();
+            Window.User = new Models.User(Tweetinvi.User.GetUserFromId(user.ID));
         }
 
         private void Window_btnSaveClicked(object sender, EventArgs e)
