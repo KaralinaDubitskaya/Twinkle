@@ -13,9 +13,10 @@ namespace Twinkle.Controllers
         public interface IWindow
         {
             string TweetText { get; }  // return entered tweet text
+            string FileName { get; set; }
             event EventHandler btnTweetClicked;
             event EventHandler btnBrowseClicked;
-
+            
             Nullable<bool> ShowDialog();
             void Close();
         }
@@ -44,12 +45,11 @@ namespace Twinkle.Controllers
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-              //  Window..Text = openFileDialog.SafeFileName;
-              //  AddMediaPath = openFileDialog.FileName;
+                Window.FileName = openFileDialog.FileName;
             }
             else
             {
-
+                Window.FileName = "";
             }
         }
 

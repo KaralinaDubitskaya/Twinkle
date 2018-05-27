@@ -11,6 +11,7 @@ using Twinkle.Views;
 using Twinkle.Views.Dialogs;
 using System.Windows;
 using Twinkle.Auth;
+using System.IO;
 
 namespace Twinkle.Controllers
 {
@@ -140,7 +141,24 @@ namespace Twinkle.Controllers
             {
                 var window = sender as TweetWindow;
                 string tweet = window.TweetText.Trim();
-                Tweetinvi.Tweet.PublishTweet(tweet);
+                var parameters = Tweetinvi.Tweet.CreatePublishTweetOptionalParameters();
+
+                if (window.FileName != "")
+                {
+                    try
+                    {
+                        byte[] file = File.ReadAllBytes(window.FileName);
+                        var image = Upload.UploadImage(file);
+                        parameters.Medias = new List<Tweetinvi.Core.Interfaces.DTO.IMedia> { image };
+                    }
+                    catch (Exception)
+                    {
+                        ErrorDialog errorDialog = new ErrorDialog("Unable load the file");
+                        return;
+                    }
+                }
+                
+                Tweetinvi.Tweet.PublishTweet(tweet, parameters);
                 SuccessDialog successDialog = new SuccessDialog("Your tweet was sent successfully.");
             }
             catch (Exception)

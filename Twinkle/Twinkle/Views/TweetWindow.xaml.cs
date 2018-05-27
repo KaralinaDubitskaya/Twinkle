@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Twinkle.Controllers;
+using System.IO;
 
 namespace Twinkle.Views
 {
@@ -26,8 +27,18 @@ namespace Twinkle.Views
         }
 
         private const int MAX_MSG_LEN = 140;
+        private string _fileName = "";
 
         public string TweetText { get { return tbTweet.Text; } }
+        public string FileName
+        {
+            get { return _fileName; }
+            set
+            {
+                _fileName = value;
+                lblMedia.Content = System.IO.Path.GetFileName(_fileName);
+            }
+        }
         public event EventHandler btnTweetClicked;
         public event EventHandler btnBrowseClicked;
 
