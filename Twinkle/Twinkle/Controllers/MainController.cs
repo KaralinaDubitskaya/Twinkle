@@ -170,12 +170,14 @@ namespace Twinkle.Controllers
                 // Unfollow selected user
                 loggedUser.UnFollowUserAsync(user.ID);
                 user.Follow = "Follow";
+                user.Followers--;
             }
             else
             {
                 // Follow selected user
                 loggedUser.FollowUserAsync(user.ID);
                 user.Follow = "Unfollow";
+                user.Followers++;
             }
 
             Window.User = user;
@@ -187,7 +189,6 @@ namespace Twinkle.Controllers
             // Retweet selected tweet
             if (Tweetinvi.Tweet.PublishRetweet(tweet.ID) != null)
             {
-                Window.TimeLine = new HomeTimeLine().GetTweets();
                 new SuccessDialog("Reetweet successfully");
             }
         }
@@ -234,7 +235,7 @@ namespace Twinkle.Controllers
                         return;
                     }
                 }
-                
+
                 Tweetinvi.Tweet.PublishTweet(tweet, parameters);
                 SuccessDialog successDialog = new SuccessDialog("Your tweet was sent successfully.");
             }

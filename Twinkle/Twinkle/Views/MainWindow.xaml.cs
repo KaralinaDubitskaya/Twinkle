@@ -47,18 +47,18 @@ namespace Twinkle.Views
             }
             set
             {
-                lbTimeline.DataContext = null;
-                lbTimeline.DataContext = value;
                 _tweets = value;
+                lbTimeline.DataContext = _tweets;
             }
         }
-        
+
         public User User
         {
             set
             {
                 UserPanel.DataContext = value;
                 btnFollow.Content = value.Follow;
+                lblFollowers.Content = null;
                 lblFollowers.Content = value.Followers;
             }
             get
