@@ -52,7 +52,18 @@ namespace Twinkle.Views
             }
         }
         
-        public User User { set { UserPanel.DataContext = value; } get { return (Twinkle.Models.User)UserPanel.DataContext; } }
+        public User User
+        {
+            set
+            {
+                UserPanel.DataContext = value;
+                btnFollow.Content = value.Follow;
+            }
+            get
+            {
+                return (Twinkle.Models.User)UserPanel.DataContext;
+            }
+        }
 
         public void AddTweet(ITweet tweet)
         {
@@ -120,15 +131,6 @@ namespace Twinkle.Views
 
         private void btnFollow_Click(object sender, RoutedEventArgs e)
         {
-            if ((string)btnFollow.Content == "Follow")
-            {
-                btnFollow.Content = "Unfollow";
-            }
-            else
-            {
-                btnFollow.Content = "Follow";
-            }
-
             btnFollowClicked?.Invoke(UserPanel.DataContext, EventArgs.Empty);
         }
     }

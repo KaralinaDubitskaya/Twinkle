@@ -169,12 +169,16 @@ namespace Twinkle.Controllers
             {
                 // Unfollow selected user
                 loggedUser.UnFollowUserAsync(user.ID);
+                user.Follow = "Follow";
             }
             else
             {
                 // Follow selected user
                 loggedUser.FollowUserAsync(user.ID);
+                user.Follow = "Unfollow";
             }
+
+            Window.User = user;
         }
 
         private void Window_btnRetweetClicked(object sender, EventArgs e)
