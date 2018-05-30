@@ -187,6 +187,7 @@ namespace Twinkle.Controllers
             // Retweet selected tweet
             if (Tweetinvi.Tweet.PublishRetweet(tweet.ID) != null)
             {
+                Window.TimeLine = new HomeTimeLine().GetTweets();
                 new SuccessDialog("Reetweet successfully");
             }
         }

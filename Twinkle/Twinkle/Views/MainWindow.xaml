@@ -54,7 +54,7 @@
                             <Image Source="{Binding User.ProfileImageUrl}"/>
                         </Button>
                         <TextBlock Padding="25, 10" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Content}" TextWrapping="Wrap" Focusable="True"/>
-                        <TextBlock Padding="25, 0" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Text="{Binding Hashtegs}" Foreground="#FF4687D9"/>
+                        <TextBlock Padding="25, 0" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Text="{Binding Hashtags}" Foreground="#FF4687D9"/>
                         <Image Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="5" Source="{Binding Picture}" MaxHeight="300"/>
                         <Grid Grid.Row="4" Grid.Column="2" HorizontalAlignment="Right">
                             <Grid.ColumnDefinitions>
@@ -116,7 +116,7 @@
                 <Label Content="Followers" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#DDFFFFFF"/>
                 <Label Content="{Binding Tweets}" Grid.Row="1" RenderTransformOrigin="0.395,-0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#DDFFFFFF" FontWeight="Bold"/>
                 <Label Content="{Binding Followings}" RenderTransformOrigin="0.395,-0.5" Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#DDFFFFFF" FontWeight="Bold"/>
-                <Label Content="{Binding Followers}" RenderTransformOrigin="0.395,-0.5" Grid.Column="2" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#DDFFFFFF" FontWeight="Bold"/>
+                <Label x:Name="lblFollowers" Content="{Binding Followers}" RenderTransformOrigin="0.395,-0.5" Grid.Column="2" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#DDFFFFFF" FontWeight="Bold"/>
             </Grid>
             <Label x:Name="lblDescription" Content="{Binding Description}" Grid.Row="5" VerticalContentAlignment="Center" Foreground="#DDFFFFFF" Margin="30,0,0,0"/>
             <Label x:Name="lblCity" Content="{Binding City}" Grid.Row="6" VerticalContentAlignment="Center" Foreground="#DDFFFFFF" Margin="30,0,0,0"/>

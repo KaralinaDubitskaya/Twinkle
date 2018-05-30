@@ -97,8 +97,7 @@ namespace Twinkle.Controllers
             }
             catch (Exception)
             {
-                new ErrorDialog("Cannot login");
-                Window.Close();
+                new ErrorDialog("Cannot login. Check your internet connection and entered PIN-code");
             }
         }
         
