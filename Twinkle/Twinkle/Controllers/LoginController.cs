@@ -10,7 +10,7 @@ using Twinkle.Models;
 using System.Diagnostics;
 using Twinkle.Controllers;
 using Twinkle.Views;
-
+using Twinkle.Views.Dialogs;
 
 namespace Twinkle.Controllers
 {
@@ -47,42 +47,57 @@ namespace Twinkle.Controllers
 
         private void Window_btnAuthorizeClicked(object sender, EventArgs e)
         {
-            // Make the user go on the URL so that Twitter authenticates him and gives a PIN code
-            Process.Start(CredentialsCreator.GetAuthorizationURL(AppCredentials));
+            try
+            {
+                // Make the user go on the URL so that Twitter authenticates him and gives a PIN code
+                Process.Start(CredentialsCreator.GetAuthorizationURL(AppCredentials));
+            }
+            catch (Exception)
+            {
+                new ErrorDialog("Cannot connect with server");
+                Window.Close();
+            }
         }
 
         private void Window_btnLoginClicked(object sender, EventArgs e)
         {
-            // With tthe pin code it is now possible to get the credentials back from Twitter
-            ITwitterCredentials credentials = CredentialsCreator.GetCredentialsFromVerifierCode
-                (Window.Pin, AppCredentials);
-
-            if (credentials != null)
+            try
             {
-                // Use the user credentials
-                Tweetinvi.Auth.SetCredentials(credentials);
-            }
+                // With tthe pin code it is now possible to get the credentials back from Twitter
+                ITwitterCredentials credentials = CredentialsCreator.GetCredentialsFromVerifierCode
+                    (Window.Pin, AppCredentials);
 
-            if (Tweetinvi.User.GetLoggedUser() != null)
-            {
-                var mainController = new MainController();
-                mainController.HandleNavigation(null);
-
-                if (Window.RememberChecked)
+                if (credentials != null)
                 {
-                    // Save user credentials
-                    SavedToken.Set(new Token(Tweetinvi.User.GetLoggedUser().Name, 
-                        credentials.AccessToken, credentials.AccessTokenSecret));
+                    // Use the user credentials
+                    Tweetinvi.Auth.SetCredentials(credentials);
                 }
 
-                Window.Close();
+                if (Tweetinvi.User.GetLoggedUser() != null)
+                {
+                    var mainController = new MainController();
+                    mainController.HandleNavigation(null);
+
+                    if (Window.RememberChecked)
+                    {
+                        // Save user credentials
+                        SavedToken.Set(new Token(Tweetinvi.User.GetLoggedUser().Name,
+                            credentials.AccessToken, credentials.AccessTokenSecret));
+                    }
+
+                    Window.Close();
+                }
+                else
+                {
+                    Window.ShowError("Incorrect PIN.");
+                    AppCredentials.AuthorizationKey = null;
+                    AppCredentials.AuthorizationSecret = null;
+                    Window.RepeatAuthorization();
+                }
             }
-            else
+            catch (Exception)
             {
-                Window.ShowError("Incorrect PIN.");
-                AppCredentials.AuthorizationKey = null;
-                AppCredentials.AuthorizationSecret = null;
-                Window.RepeatAuthorization();
+                new ErrorDialog("Cannot login. Check your internet connection and entered PIN-code");
             }
         }
         

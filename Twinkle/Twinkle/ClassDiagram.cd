@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Twinkle.App" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.PathDialogEventArgs" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\PathDialogEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.LoginWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQQAAAAAABQCAACAAAAACAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\LoginWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Twinkle.Auth.SavedToken" Collapsed="true">
+    <Position X="17.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAoAAAAAACBAIAAAAAAAQAAAEAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Auth\SavedToken.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Controllers.Controller" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\Controller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Controllers.LoginController" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAwgIAAAAAAAAAAAAAAAAAAAACAIAAAA=</HashCode>
+      <FileName>Controllers\LoginController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Controllers.MainController" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAgAIAkEAACCAAgIAAAAAAEAAAAAACIgAAAA=</HashCode>
+      <FileName>Controllers\MainController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Controllers.SaveController" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAkAAAgAIAgAAAAAIAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Controllers\SaveController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Controllers.TweetController" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAgAAAAAAAgAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Controllers\TweetController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.FileManager.FileReader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileManager\FileReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Twinkle.FileManager.FileWriter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileManager\FileWriter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Twinkle.Models.Token" Collapsed="true">
+    <Position X="15.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAEAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Token.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Models.Tweet" Collapsed="true">
+    <Position X="17.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBgAAAAgAAgAIEAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Tweet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Models.Tweets" Collapsed="true">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Tweets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Models.User" Collapsed="true">
+    <Position X="13.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAQggAAoARAAAQAQAAAAAAQAAAAAAAAAEAE=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Parser.Parser" Collapsed="true">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAQAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Parser\Parser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Parser.TextParser" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIIAAAAAAAAAAAAAAAAQAAAAAAQAAAIAAAAAAAAA=</HashCode>
+      <FileName>Parser\TextParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Parser.XmlParser" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIIAAAAAAAAAAAAAAAAQAAAAAAQAAAIAAAAAAAAA=</HashCode>
+      <FileName>Parser\XMLParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Properties.Resources" Collapsed="true">
+    <Position X="15.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Properties.Settings" Collapsed="true">
+    <Position X="12" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Twitter.HomeTimeLine" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Twitter\HomeTimeLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Twitter.ListOfTweets" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Twitter\ListOfTweets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Twitter.UserTimeLine" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAABAAAQAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Twitter\UserTimeLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Views.Dialogs.ErrorDialog" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Dialogs\ErrorDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Views.Dialogs.PathDialog" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Dialogs\PathDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Views.Dialogs.SuccessDialog" Collapsed="true">
+    <Position X="13.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Dialogs\SuccessDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Twinkle.Views.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FBAhIAAAgIAAAAEAAAYIgIAAIIAEQBGAAAAAAQCAEBA=</HashCode>
+      <FileName>Views\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Twinkle.Views.SaveWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAgAEAAAIAAAAIAAAIIAAAAAAAAABAIAAAAAAAAAAA=</HashCode>
+      <FileName>Views\SaveWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Twinkle.Views.TweetWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAEAAAQAAAIBAIAgAICAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Views\TweetWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Twinkle.XML.XMLManager&lt;T&gt;" Collapsed="true">
+    <Position X="15.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACBAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>XML\XMLManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

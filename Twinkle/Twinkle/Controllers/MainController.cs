@@ -169,12 +169,18 @@ namespace Twinkle.Controllers
             {
                 // Unfollow selected user
                 loggedUser.UnFollowUserAsync(user.ID);
+                user.Follow = "Follow";
+                user.Followers--;
             }
             else
             {
                 // Follow selected user
                 loggedUser.FollowUserAsync(user.ID);
+                user.Follow = "Unfollow";
+                user.Followers++;
             }
+
+            Window.User = user;
         }
 
         private void Window_btnRetweetClicked(object sender, EventArgs e)
@@ -229,7 +235,7 @@ namespace Twinkle.Controllers
                         return;
                     }
                 }
-                
+
                 Tweetinvi.Tweet.PublishTweet(tweet, parameters);
                 SuccessDialog successDialog = new SuccessDialog("Your tweet was sent successfully.");
             }

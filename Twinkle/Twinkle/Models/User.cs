@@ -33,25 +33,28 @@ namespace Twinkle.Models
 
         public User(IUser user)
         {
-            Username = user.Name;
-            ScreenName = user.ScreenName;
-            ProfileImageUrl = user.ProfileImageUrl400x400;
-            Tweets = user.StatusesCount;
-            Followers = user.FollowersCount;
-            Followings = user.FriendsCount;
-            ID = user.Id;
-            Description = user.Description;
-            if (Description.Length > _maxDescriptionLen)
+            if (user != null)
             {
-                // Cut the end of the description
-                Description = Description.Substring(0, _maxDescriptionLen - 3) + "...";
+                Username = user.Name;
+                ScreenName = user.ScreenName;
+                ProfileImageUrl = user.ProfileImageUrl400x400;
+                Tweets = user.StatusesCount;
+                Followers = user.FollowersCount;
+                Followings = user.FriendsCount;
+                ID = user.Id;
+                Description = user.Description;
+                if (Description.Length > _maxDescriptionLen)
+                {
+                    // Cut the end of the description
+                    Description = Description.Substring(0, _maxDescriptionLen - 3) + "...";
+                }
+
+                City = user.Location;
+                AccountCreatedAt = "Joined " + String.Format("{0:MMMM  yyyy}", user.CreatedAt);
+
+                Admin = "Visible";    // not logged user
+                Follow = "Follow";    // isn't followed by the logged user 
             }
-
-            City = user.Location;
-            AccountCreatedAt = "Joined " + String.Format("{0:MMMM  yyyy}", user.CreatedAt);
-
-            Admin = "Visible";    // not logged user
-            Follow = "Follow";    // isn't followed by the logged user
         }
     }
 }
