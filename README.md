@@ -21,13 +21,13 @@ Twinkle uses `Twitter REST API` to interact with the Twitter server via `HTTP` p
 ### :star: Retweet any post you like!
 [![Retweet Demo](https://j.gifs.com/4QzXJx.gif)](https://youtu.be/17n_L_qHw8w)
 
-#### Full demo video on [youtube]([https://youtu.be/17n_L_qHw8w](https://youtu.be/17n_L_qHw8w))
+#### Full demo video on [youtube](https://youtu.be/17n_L_qHw8w)
 
 ## 📜 License
 > The project was created as a coursework.                                                                            
 > BSUIR, Computer Systems and Networks 2018.
-> 
-[MIT LICENSE]([https://github.com/KaralinaDubitskaya/Twinkle/blob/master/LICENSE](https://github.com/KaralinaDubitskaya/Twinkle/blob/master/LICENSE))
+
+[MIT LICENSE](https://github.com/KaralinaDubitskaya/Twinkle/blob/master/LICENSE)
 
 
 ## 💬 Contact
