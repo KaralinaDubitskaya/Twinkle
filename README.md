@@ -10,16 +10,18 @@ Twinkle uses `Twitter REST API` to interact with the Twitter server via `HTTP` p
 ## Let's start!
 
 ### :arrow_right: Connect Twitter Account
-[![Log In](https://j.gifs.com/vl8Apr.gif)](https://youtu.be/17n_L_qHw8w)
+[![Log In Demo](https://j.gifs.com/YWyG8O.gif)](https://youtu.be/17n_L_qHw8w)
 
 ###  :hand: Post a new tweet
-[![Tweet](https://j.gifs.com/vl8A6V.gif)](https://youtu.be/17n_L_qHw8w)
+[![New Tweet Demo](https://j.gifs.com/lx2n37.gif)](https://youtu.be/17n_L_qHw8w)
 
 ###  :mag: Explore ideas of other users
-[![Follow/Unfollow Other Users](https://j.gifs.com/VA7Bq5.gif)](https://youtu.be/17n_L_qHw8w)
+[![Follow/Unfollow Demo](https://j.gifs.com/vl8A3L.gif)](https://youtu.be/17n_L_qHw8w)
 
 ### :star: Retweet any post you like!
-[![Retweet](https://j.gifs.com/91D5v3.gif)](https://youtu.be/17n_L_qHw8w)
+[![Retweet Demo](https://j.gifs.com/4QzXJx.gif)](https://youtu.be/17n_L_qHw8w)
+
+#### Full demo video on [youtube]([https://youtu.be/17n_L_qHw8w](https://youtu.be/17n_L_qHw8w))
 
 ## 📜 License
 > The project was created as a coursework.                                                                            
